@@ -1,0 +1,25 @@
+<nav class="menu">
+  <ul class="nav-elem">
+    <div class="container">
+      <li class="main_menu"><a href="{% url 'uptrader:main_page' %}"> Main page</a>
+    </div>
+    {% for item in menu_obj %}
+      {% if item.parent is None %}
+        <div class="container lod"><li class="main_menu"><a href="{% url 'uptrader:news' slug=item.slug %}">{{ item.name }}</a> 
+          {% for obj in menu_obj %}
+            {% if obj.parent == item.name %}
+              <ul class="entered mask">
+                <div class="container">
+                  <li><a href="{% url 'uptrader:news_paginator' slug=obj.slug slug1=obj.parent %}">{{ obj.name }}</a>
+                  </li>
+                </div>
+              </ul>
+                
+            {% endif %}
+          {% endfor %}
+      </li>
+    </div>
+      {% endif %}    
+    {% endfor %}
+  </ul>
+</nav>

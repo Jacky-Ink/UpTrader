@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block menu %}
+  <ul>
+    {% for item in menu_obj %}
+      <li>
+        <a href="{% url 'mainapp:news' pk=item.pk %}">
+    {{ item.title }} 
+      <ul>
+        {% for items in in_menu %}
+          {% if items.menu_id == item.pk %}
+            <li>
+              <a href="{% url 'mainapp:news_paginator' pk=items.pk %}">{{ items.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock menu %}
+
+{% block content %}
+  <div>
+    If you fall asleep now, you will dream. If you study now, you will live your dream
+  </div>
+{% endblock content %}

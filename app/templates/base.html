@@ -1,0 +1,37 @@
+{% load static %}
+{% load mytags %}
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <title>
+        Welcome to Motivation!
+      </title>
+</head>
+
+<body>
+  <!-- /Menu  -->
+  {% show_top_menu %}
+    <div class="content">
+    {% block content %}
+    {% endblock content %}
+    </div>
+
+  <!-- /Footer -->
+  <footer>
+    <div class="footer">  
+      <div class="row">
+        I am thankful for all of those who said NO to me. It’s because of them I’m doing it myself (Albert Einstein)
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript section -->
+    <script src="{% static 'js/script.js' %}">
+    </script>
+</body>
+</html>
